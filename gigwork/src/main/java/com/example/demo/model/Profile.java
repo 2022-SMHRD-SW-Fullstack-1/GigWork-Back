@@ -2,8 +2,10 @@ package com.example.demo.model;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
+@AllArgsConstructor
 @Data
 public class Profile {
 	private String mem_id;
