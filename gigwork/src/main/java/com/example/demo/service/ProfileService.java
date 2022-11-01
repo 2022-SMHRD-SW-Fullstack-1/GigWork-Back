@@ -1,10 +1,14 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.ProfileMapper;
+import com.example.demo.model.Member;
+import com.example.demo.model.ProfileList;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,5 +21,15 @@ public class ProfileService {
 	public void createProfile(Map<String,Object> pro) {
 		profileMapper.createProfile(pro);
 	};
+	
+	public String select() {
+		String a = profileMapper.select();
+		return a;
+	}
+	
+	public List<ProfileList> prolist() {
+		return profileMapper.prolist();
+	}
+	
 	
 }

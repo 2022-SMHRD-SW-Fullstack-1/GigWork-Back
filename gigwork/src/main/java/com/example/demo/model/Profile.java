@@ -12,4 +12,5 @@ public class Profile {
 	private String say;
 	private Date open_date;
 	private Date close_date;
+	private String img_src;
 }

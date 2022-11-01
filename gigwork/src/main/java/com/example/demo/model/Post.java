@@ -13,8 +13,8 @@ public class Post {
 	private char post_offer_yn;
 	private Date worktime_s;
 	private Date worktime_e;
-	private int lat;
-	private int lng;
+	private Double lat;
+	private Double lng;
 	private char urgent;
 	private String title;
 	private String content;
