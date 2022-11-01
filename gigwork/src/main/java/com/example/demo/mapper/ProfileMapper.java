@@ -8,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ProfileMapper {
 
 	public void createProfile(Map<String,Object> pro);
+
 }

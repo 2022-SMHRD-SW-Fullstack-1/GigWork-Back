@@ -17,4 +17,5 @@ public class ProfileService {
 	public void createProfile(Map<String,Object> pro) {
 		profileMapper.createProfile(pro);
 	};
+	
 }

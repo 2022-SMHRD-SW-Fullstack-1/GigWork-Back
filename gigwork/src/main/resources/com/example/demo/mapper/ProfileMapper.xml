@@ -3,8 +3,7 @@
 <mapper namespace="com.example.demo.mapper.ProfileMapper">
 
 	<insert id="createProfile">
-		insert into t_profile values(#{id},#{say},#{open_date},#{close_date})
+		insert into t_profile values (#{id},#{say},to_date(#{openDate},'YYYY-MM-DD'),to_date(#{closeDate},'YYYY-MM-DD'),#{img_src})
 	</insert>
-
 
 </mapper>
