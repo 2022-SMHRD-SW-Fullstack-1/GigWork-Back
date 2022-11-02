@@ -3,7 +3,7 @@
 <mapper namespace="com.example.demo.mapper.ProfileMapper">
 
 	<insert id="createProfile">
-		insert into t_profile values (#{id},#{say},#{imgSrc},#{cOne},#{cTwo},#{cThree},to_date(#{openDate},'YYYY-MM-DD'),to_date(#{closeDate},'YYYY-MM-DD'))
+		insert into t_profile values (#{id},#{say},#{imgSrc},#{cOne},#{cTwo},#{cThree},#{sido},#{gungu},to_date(#{openDate},'YYYY-MM-DD'),to_date(#{closeDate},'YYYY-MM-DD'))
 	</insert>
 
 	<select id="select" resultType="String">
@@ -11,7 +11,7 @@
 	</select>
 	
 	<select id="prolist" resultType="com.example.demo.model.ProfileList">
-		SELECT m.mem_id , m.name , m.age , p.say , p.img_src , m.lat , m.lng , p.cate_one , p.cate_two , p.cate_three
+		SELECT m.mem_id , m.name , m.gender , m.age , p.say , p.img_src , p.sido , p.gungu , p.cate_one , p.cate_two , p.cate_three
 FROM t_member m , t_profile p
 WHERE m.mem_id = p.mem_id
 	</select>

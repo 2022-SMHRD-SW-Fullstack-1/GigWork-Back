@@ -61,11 +61,12 @@ public class ProfileRestController {
 			JsonObject obj = new JsonObject();
 			obj.addProperty("mem_id",list.get(i).getMem_id());
 			obj.addProperty("name",list.get(i).getName());
+			obj.addProperty("gender",list.get(i).getGender());
 			obj.addProperty("age",list.get(i).getAge());
 			obj.addProperty("say",list.get(i).getSay());
 			obj.addProperty("img_src",list.get(i).getImg_src());
-			obj.addProperty("lat",list.get(i).getLat());
-			obj.addProperty("lng",list.get(i).getLng());
+			obj.addProperty("sido",list.get(i).getSido());
+			obj.addProperty("gungu",list.get(i).getGungu());
 			obj.addProperty("cate_one",list.get(i).getCate_one());
 			obj.addProperty("cate_two",list.get(i).getCate_two());
 			obj.addProperty("cate_three",list.get(i).getCate_three());
