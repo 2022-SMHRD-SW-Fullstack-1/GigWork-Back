@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Member;
+import com.example.demo.model.OtherView;
 import com.example.demo.model.ProfileList;
 import com.example.demo.service.ProfileService;
 import com.google.gson.Gson;
@@ -84,6 +85,27 @@ public class ProfileRestController {
 		String a = profileService.select();
 		return a;
 	}
+	
+	@PostMapping("otherview")
+	public String select(@RequestBody Map<String,Object> name) {
+		
+		OtherView view = profileService.otherview(name);
+		JsonObject obj = new JsonObject();
+		obj.addProperty("name", view.getName());
+		obj.addProperty("mem_trust", view.getMem_trust());
+		obj.addProperty("cate_one", view.getCate_one());
+		obj.addProperty("cate_two", view.getCate_two());
+		obj.addProperty("cate_three", view.getCate_three());
+		obj.addProperty("say", view.getSay());
+		obj.addProperty("open_date", view.getOpen_date());
+		obj.addProperty("close_date", view.getClose_date());
+
+		
+		return obj.toString();
+
+	}
+	
+	
 }
 
 

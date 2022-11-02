@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.mapper.ProfileMapper;
 import com.example.demo.model.Member;
+import com.example.demo.model.OtherView;
 import com.example.demo.model.ProfileList;
 
 import lombok.RequiredArgsConstructor;
@@ -31,5 +33,8 @@ public class ProfileService {
 		return profileMapper.prolist();
 	}
 	
+	public OtherView otherview(@RequestBody Map<String,Object> name) {
+		return profileMapper.otherview(name);
+	}
 	
 }
