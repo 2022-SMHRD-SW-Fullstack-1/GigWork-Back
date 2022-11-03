@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.mapper.ProfileMapper;
 import com.example.demo.model.Member;
+import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
 import com.example.demo.model.ProfileList;
 
@@ -35,6 +36,14 @@ public class ProfileService {
 	
 	public OtherView otherview(@RequestBody Map<String,Object> name) {
 		return profileMapper.otherview(name);
+	}
+	
+	public MyView myview(@RequestBody Map<String,Object> id) {
+		return profileMapper.myview(id);
+	}
+	
+	public int hasPro(@RequestBody Map<String,Object> id) {
+		return profileMapper.hasPro(id);
 	}
 	
 }

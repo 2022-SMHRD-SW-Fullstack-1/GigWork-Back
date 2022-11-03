@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Member;
+import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
 import com.example.demo.model.ProfileList;
 import com.example.demo.service.ProfileService;
@@ -57,8 +58,7 @@ public class ProfileRestController {
 		
 		List<ProfileList> list = profileService.prolist();
 		
-	
-		for(int i=0;i<2;i++) {
+		for(int i=0;i<3;i++) {
 			JsonObject obj = new JsonObject();
 			obj.addProperty("mem_id",list.get(i).getMem_id());
 			obj.addProperty("name",list.get(i).getName());
@@ -87,7 +87,7 @@ public class ProfileRestController {
 	}
 	
 	@PostMapping("otherview")
-	public String select(@RequestBody Map<String,Object> name) {
+	public String otherview(@RequestBody Map<String,Object> name) {
 		
 		OtherView view = profileService.otherview(name);
 		JsonObject obj = new JsonObject();
@@ -103,6 +103,30 @@ public class ProfileRestController {
 		
 		return obj.toString();
 
+	}
+	
+	@PostMapping("myview")
+	public String myview(@RequestBody Map<String,Object> id) {
+		
+		MyView view = profileService.myview(id);
+		JsonObject obj = new JsonObject();
+		obj.addProperty("name", view.getName());
+		obj.addProperty("mem_trust", view.getMem_trust());
+		obj.addProperty("cate_one", view.getCate_one());
+		obj.addProperty("cate_two", view.getCate_two());
+		obj.addProperty("cate_three", view.getCate_three());
+		obj.addProperty("say", view.getSay());
+		obj.addProperty("open_date", view.getOpen_date());
+		obj.addProperty("close_date", view.getClose_date());
+
+		return obj.toString();
+		
+	}
+	
+	
+	@PostMapping("hasPro")
+	public int hasPro(@RequestBody Map<String,Object> id) {
+		return profileService.hasPro(id);
 	}
 	
 	

@@ -23,5 +23,17 @@ WHERE m.mem_id = p.mem_id
 and name = #{name}
 	</select>
 	
+	<select id="myview" resultType="com.example.demo.model.MyView">
+		SELECT m.name , m.mem_trust , p.cate_one , p.cate_two , p.cate_three , p.say , to_char(p.open_date,'YYYY-MM-DD') , to_char(p.close_date,'YYYY-MM-DD')
+FROM t_member m , t_profile p
+WHERE m.mem_id = p.mem_id
+and m.mem_id = #{id}
+	</select>
+	
+	
+	<select id="hasPro" resultType = "int">
+		select count(*) from t_profile where mem_id=#{id}
+	</select>
+	
 
 </mapper>

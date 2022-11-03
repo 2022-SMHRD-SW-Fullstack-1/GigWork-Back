@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.model.Member;
+import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
 import com.example.demo.model.ProfileList;
 
@@ -21,4 +22,8 @@ public interface ProfileMapper {
 	public List<ProfileList> prolist();
 	
 	public OtherView otherview(@RequestBody Map<String,Object> name);
+	
+	public MyView myview(@RequestBody Map<String,Object> id);
+	
+	public int hasPro(@RequestBody Map<String,Object> id);
 }
