@@ -6,9 +6,8 @@ import lombok.Data;
 
 @Data
 public class Post {
-	private int post_num;
 	private String mem_id;
-	private int post_cate;
+	private String post_cate;
 	private int post_pay;
 	private char post_offer_yn;
 	private Date worktime_s;
