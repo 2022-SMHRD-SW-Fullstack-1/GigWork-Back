@@ -14,7 +14,7 @@ import com.example.demo.service.PostService;
 
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "http://http://localhost:3000")
+
 @RequiredArgsConstructor
 @RequestMapping("post")
 @RestController
@@ -22,11 +22,11 @@ public class PostRestController {
 	
 	private final PostService postService;
 	
-	@PostMapping("/JOcreate")
+	@PostMapping("/create")
 	public void writePost(@RequestBody HashMap<String, Object> data) {
 		System.out.println("넘어오는 값"+data);
 		
-		postService.writePost(data);
+//		postService.writePost(data);
 		
 		System.out.println(data);
 		
