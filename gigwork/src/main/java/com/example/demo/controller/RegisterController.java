@@ -25,7 +25,6 @@ public class RegisterController {
 	
 	@PostMapping("/login")
 	public String login(@RequestBody Map<String,Object> info) {
-		
 		return registerService.login(info);
 	}
 	

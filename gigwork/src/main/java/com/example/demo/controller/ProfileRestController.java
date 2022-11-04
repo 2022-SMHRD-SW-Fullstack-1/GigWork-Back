@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.Manner;
+import com.example.demo.model.Matching;
 import com.example.demo.model.Member;
 import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
@@ -35,10 +37,11 @@ public class ProfileRestController {
 //	public void test(@RequestBody Map<String,Object> cate) {
 //		System.out.println(cate.get("cate"));
 //	}
-	@PostMapping("/create")
+	@PostMapping("/proCreate")
 	public void create(@RequestBody Map<String,Object> pro){
 		
 		profileService.createProfile(pro);
+
 		
 	}
 	
@@ -58,7 +61,7 @@ public class ProfileRestController {
 		
 		List<ProfileList> list = profileService.prolist();
 		
-		for(int i=0;i<3;i++) {
+		for(int i=0;i<list.size();i++) {
 			JsonObject obj = new JsonObject();
 			obj.addProperty("mem_id",list.get(i).getMem_id());
 			obj.addProperty("name",list.get(i).getName());
@@ -129,6 +132,47 @@ public class ProfileRestController {
 		return profileService.hasPro(id);
 	}
 	
+	
+	@PostMapping("activeList")
+	public String activeList(@RequestBody Map<String,Object> id) {
+		
+		JsonArray ja = new JsonArray();
+		JsonObject jo = new JsonObject();
+		
+		List<Matching> list = profileService.activeList(id);
+		if(list.size()!=0) {
+		for(int i=0;i<list.size();i++) {
+			JsonObject obj = new JsonObject();
+			obj.addProperty("title",list.get(i).getTitle());
+			obj.addProperty("post_cate", list.get(i).getPost_cate());
+			obj.addProperty("match_date",list.get(i).getMatch_date());
+			ja.add(obj);
+		}
+		}
+		jo.add("JsonArray", ja);
+		
+		return jo.toString();
+	}
+	
+	@PostMapping("evaluation")
+	public String evaluation(@RequestBody Map<String,Object> id) {
+		JsonArray ja = new JsonArray();
+		JsonObject jo = new JsonObject();
+		
+		List<Manner> list = profileService.evaluation(id);
+		if(list.size()!=0) {
+		for(int i=0;i<list.size();i++) {
+			JsonObject obj = new JsonObject();
+			obj.addProperty("evl_content",list.get(i).getEvl_content());
+			obj.addProperty("evl_point", list.get(i).getEvl_point());
+			obj.addProperty("evl_date",list.get(i).getEvl_date());
+			ja.add(obj);
+		}
+		}
+		jo.add("JsonArray", ja);
+		
+		return jo.toString();
+	}
 	
 }
 

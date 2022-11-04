@@ -7,6 +7,8 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.example.demo.model.Manner;
+import com.example.demo.model.Matching;
 import com.example.demo.model.Member;
 import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
@@ -26,4 +28,8 @@ public interface ProfileMapper {
 	public MyView myview(@RequestBody Map<String,Object> id);
 	
 	public int hasPro(@RequestBody Map<String,Object> id);
+	
+	public List<Matching> activeList(@RequestBody Map<String,Object> id);
+	
+	public List<Manner> evaluation(@RequestBody Map<String,Object> id);
 }

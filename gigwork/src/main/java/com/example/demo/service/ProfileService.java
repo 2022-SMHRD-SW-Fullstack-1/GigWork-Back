@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.mapper.ProfileMapper;
+import com.example.demo.model.Manner;
+import com.example.demo.model.Matching;
 import com.example.demo.model.Member;
 import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
@@ -44,6 +46,14 @@ public class ProfileService {
 	
 	public int hasPro(@RequestBody Map<String,Object> id) {
 		return profileMapper.hasPro(id);
+	}
+	
+	public List<Matching> activeList(@RequestBody Map<String,Object> id){
+		return profileMapper.activeList(id);
+	}
+	
+	public List<Manner> evaluation(@RequestBody Map<String,Object> id){
+		return profileMapper.evaluation(id);
 	}
 	
 }
