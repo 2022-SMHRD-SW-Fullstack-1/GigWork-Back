@@ -19,5 +19,9 @@ public class RegisterService {
 	public void createRegister(@RequestBody Map<String,Object> info) {
 		registerMapper.createRegister(info);
 	}
+	
+	public String login(@RequestBody Map<String,Object> info) {
+		return registerMapper.login(info);
+	}
 
 }
