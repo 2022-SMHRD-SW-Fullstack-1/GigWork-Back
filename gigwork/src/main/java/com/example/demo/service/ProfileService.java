@@ -64,4 +64,8 @@ public class ProfileService {
 		return profileMapper.nameToId(name);
 	}
 	
+	public void evl(@RequestBody Map<String,Object> info) {
+		profileMapper.evl(info);
+	}
+	
 }

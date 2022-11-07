@@ -58,5 +58,9 @@ ORDER BY EVL_DATE desc
 	<select id="nameToId" resultType="String">
 		SELECT mem_id FROM T_MEMBER WHERE name=#{name}
 	</select>
+	
+	<insert id="evl">
+		insert into t_manner values(null,#{targetId},#{oppId},#{evlPoint},#{evlContent},to_date(#{evlDate},'YYYY-MM-DD'))
+	</insert>
 
 </mapper>

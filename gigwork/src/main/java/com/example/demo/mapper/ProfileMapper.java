@@ -36,4 +36,6 @@ public interface ProfileMapper {
 	public List<Manner> evaluation(@RequestBody Map<String,Object> id);
 	
 	public String nameToId(@RequestBody Map<String,Object> id);
+
+	public void evl(@RequestBody Map<String,Object> info);
 }

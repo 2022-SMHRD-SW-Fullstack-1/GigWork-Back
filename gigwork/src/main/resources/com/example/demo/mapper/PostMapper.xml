@@ -14,7 +14,8 @@
 
 
 <select id="searchPost" resultType="com.example.demo.model.Post">
-	select post_num urgent, to_char(WORKTIME_S, 'YYYY-MM-DD"T"HH24:MI'), to_char(WORKTIME_E, 'YYYY-MM-DD"T"HH24:MI'), post_cate, post_offer_yn, post_pay, title from t_post
+	SELECT POST_NUM  , MEM_ID , POST_CATE , POST_PAY  , POST_OFFER_YN  , TO_CHAR(WORKTIME_S,'YYYY-MM-DD"T"HH24:MI') ,TO_CHAR( WORKTIME_E,'YYYY-MM-DD"T"HH24:MI' ),LAT ,LNG ,URGENT ,TITLE ,CONTENT ,IMG_SRC ,TO_CHAR( REG_DATE,'YYYY-MM-DD"T"HH24:MI' )  FROM T_POST 
+
 </select>
 
 <insert id="bookmakr">

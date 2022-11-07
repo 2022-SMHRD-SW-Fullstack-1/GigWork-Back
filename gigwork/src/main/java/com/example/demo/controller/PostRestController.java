@@ -35,7 +35,6 @@ public class PostRestController {
 	public void createPost(@RequestBody Map<String,Object> data) {
 		
 		postService.createPost(data);
-
 }	
 
 	@PostMapping("/search")
@@ -48,25 +47,34 @@ public class PostRestController {
 	JsonObject jsonObject = new JsonObject();
 	
 	@PostMapping("/postlist")
-	public List<Post> postlist() {
-//		JsonArray jArray = new JsonArray();
-//		JsonObject jObject = new JsonObject();
-//		
-//		List<Post> postlist = postService.searchPost();
-//		
-//		for(int i=0; i<1; i++) {
-//			JsonObject jObjects = new JsonObject();
-//			jObjects.addProperty("urgent", postlist.get(i).getUrgent());
-//			jObjects.addProperty("startDate", postlist.get(i).getWorktime_s());
-//			jObjects.addProperty("endDate", postlist.get(i).getWorktime_e());
-//			jObjects.addProperty("jobCategory", postlist.get(i).getPost_cate());
-//			jObjects.addProperty("offer", postlist.get(i).getPost_offer_yn());
-//			jObjects.addProperty("pay", postlist.get(i).getPost_pay());
-//		}
-//		jObject.add("JasonArray", jArray);
+	public void postlist() {
+		JsonArray ja = new JsonArray();
+		JsonObject jo = new JsonObject();
 		
-//		return jObject.toString();
-		return postService.searchPost();
+		List<Post> postlist = postService.searchPost();
+		
+		for(int i=0; i<postlist.size(); i++) {
+			JsonObject obj = new JsonObject();
+			obj.addProperty("post_num", postlist.get(i).getPost_num());
+			obj.addProperty("mem_id", postlist.get(i).getMem_id());
+			obj.addProperty("post_cate", postlist.get(i).getPost_cate());
+			obj.addProperty("post_pay", postlist.get(i).getPost_pay());
+			obj.addProperty("post_offer_yn", postlist.get(i).getPost_offer_yn());
+			obj.addProperty("worktime_s", postlist.get(i).getWorktime_s());
+			obj.addProperty("worktime_e", postlist.get(i).getWorktime_e());
+			obj.addProperty("lat", postlist.get(i).getLat());
+			obj.addProperty("lng", postlist.get(i).getLng());
+			obj.addProperty("urgent", postlist.get(i).getUrgent());
+			obj.addProperty("title", postlist.get(i).getTitle());
+			obj.addProperty("content", postlist.get(i).getContent());
+			obj.addProperty("img_src", postlist.get(i).getImg_src());
+			obj.addProperty("reg_date", postlist.get(i).getReg_date());
+		}
+		jo.add("JasonArray", ja);
+		
+//		return jo.toString();
+		System.out.println(jo);
+		
 	}
 	
 //	@PostMapping("/pagenation")

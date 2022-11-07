@@ -185,6 +185,12 @@ public class ProfileRestController {
 	public String nameToId(@RequestBody Map<String,Object> name) {
 		return profileService.nameToId(name);
 	}
+	
+	@PostMapping("evl")
+	public void evl(@RequestBody Map<String,Object> info) {
+		profileService.evl(info);
+	}
+	
 }
 
 
