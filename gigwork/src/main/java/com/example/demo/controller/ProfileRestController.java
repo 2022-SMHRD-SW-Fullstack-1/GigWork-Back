@@ -45,6 +45,13 @@ public class ProfileRestController {
 		
 	}
 	
+	@PostMapping("/proCorrection")
+	public void correction(@RequestBody Map<String,Object> pro){
+		
+		profileService.correctionProfile(pro);
+	}
+	
+	
 	@PostMapping("/upload")
 	public void upload(@RequestBody Map<String,Object> a) {
 		System.out.println(a);
@@ -174,6 +181,10 @@ public class ProfileRestController {
 		return jo.toString();
 	}
 	
+	@PostMapping("nameToId")
+	public String nameToId(@RequestBody Map<String,Object> name) {
+		return profileService.nameToId(name);
+	}
 }
 
 

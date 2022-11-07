@@ -6,8 +6,8 @@
 		insert into t_member values (#{id},#{pw},#{name},#{age},#{gender},#{phone},#{trust},#{join_date},#{lat},#{lng},#{mem_type})
 	</insert>
 
-	<select id="login" resultType="String">
-		select mem_id from t_member where mem_id=#{id} and mem_pw=#{pw}
+	<select id="login" resultType="com.example.demo.model.Login">
+		select mem_id,name from t_member where mem_id=#{id} and mem_pw=#{pw}
 	</select>
 
 </mapper>

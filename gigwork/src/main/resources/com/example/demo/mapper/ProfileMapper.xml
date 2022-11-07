@@ -5,6 +5,10 @@
 	<insert id="createProfile">
 		insert into t_profile values (#{id},#{say},#{imgSrc},#{cOne},#{cTwo},#{cThree},#{sido},#{gungu},to_date(#{openDate},'YYYY-MM-DD'),to_date(#{closeDate},'YYYY-MM-DD'))
 	</insert>
+	
+	<update id="correctionProfile">
+		update t_profile set say=#{say},img_src=#{imgSrc},cate_one=#{cOne},cate_two=#{cTwo},cate_three=#{cThree},sido=#{sido},gungu=#{gungu},open_date=to_date(#{openDate},'YYYY-MM-DD'),close_date=to_date(#{closeDate},'YYYY-MM-DD') where mem_id = #{id}
+	</update>
 
 	<select id="select" resultType="String">
 		select mem_id from t_member where age=27
@@ -49,6 +53,10 @@ ORDER BY m.match_date desc
 FROM T_MANNER
 WHERE MEM_ID = #{id}
 ORDER BY EVL_DATE desc
+	</select>
+	
+	<select id="nameToId" resultType="String">
+		SELECT mem_id FROM T_MEMBER WHERE name=#{name}
 	</select>
 
 </mapper>

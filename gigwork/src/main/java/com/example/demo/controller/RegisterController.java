@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.Login;
+import com.example.demo.model.OtherView;
 import com.example.demo.service.ProfileService;
 import com.example.demo.service.RegisterService;
+import com.google.gson.JsonObject;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,9 +26,19 @@ public class RegisterController {
 		registerService.createRegister(info);
 	}
 	
+//	@PostMapping("/login")
+//	public String login(@RequestBody Map<String,Object> info) {
+//		return registerService.login(info);
+//	}
+	
 	@PostMapping("/login")
 	public String login(@RequestBody Map<String,Object> info) {
-		return registerService.login(info);
+		
+		Login view = registerService.login(info);;
+		JsonObject obj = new JsonObject();
+		obj.addProperty("mem_id", view.getMem_id());
+		obj.addProperty("name", view.getName());
+
+		return obj.toString();
 	}
-	
 }

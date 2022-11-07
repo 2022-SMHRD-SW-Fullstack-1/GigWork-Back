@@ -27,6 +27,10 @@ public class ProfileService {
 		profileMapper.createProfile(pro);
 	};
 	
+	public void correctionProfile(Map<String,Object> pro) {
+		profileMapper.correctionProfile(pro);
+	}
+	
 	public String select() {
 		String a = profileMapper.select();
 		return a;
@@ -54,6 +58,10 @@ public class ProfileService {
 	
 	public List<Manner> evaluation(@RequestBody Map<String,Object> id){
 		return profileMapper.evaluation(id);
+	}
+	
+	public String nameToId(@RequestBody Map<String,Object> name) {
+		return profileMapper.nameToId(name);
 	}
 	
 }

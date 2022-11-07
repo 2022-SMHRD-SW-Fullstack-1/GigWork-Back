@@ -18,6 +18,8 @@ import com.example.demo.model.ProfileList;
 public interface ProfileMapper {
 
 	public void createProfile(Map<String,Object> pro);
+	
+	public void correctionProfile(Map<String,Object> pro);
 
 	public String select();
 	
@@ -32,4 +34,6 @@ public interface ProfileMapper {
 	public List<Matching> activeList(@RequestBody Map<String,Object> id);
 	
 	public List<Manner> evaluation(@RequestBody Map<String,Object> id);
+	
+	public String nameToId(@RequestBody Map<String,Object> id);
 }

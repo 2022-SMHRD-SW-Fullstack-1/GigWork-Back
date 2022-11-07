@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.mapper.ProfileMapper;
 import com.example.demo.mapper.RegisterMapper;
+import com.example.demo.model.Login;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +21,11 @@ public class RegisterService {
 		registerMapper.createRegister(info);
 	}
 	
-	public String login(@RequestBody Map<String,Object> info) {
+//	public String login(@RequestBody Map<String,Object> info) {
+//		return registerMapper.login(info);
+//	}
+	
+	public Login login(@RequestBody Map<String,Object> info) {
 		return registerMapper.login(info);
 	}
 
