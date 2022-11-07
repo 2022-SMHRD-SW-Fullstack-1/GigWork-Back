@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class ChattingRoom {
 	private int cr_seq;
-	private String mem_id;
+	private String mem_nick;
 	private Date cr_date;
-	private String partner_id;
+	private String partner_nick;
 	private char cr_status;
 }

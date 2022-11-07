@@ -35,14 +35,15 @@ public class ReplyEchoHandler extends TextWebSocketHandler {
 	// 접속한 유저의 http세션을 조회하여 id를 얻는 함수
 	private String getMemberId(WebSocketSession session) {
 		Map<String, Object> httpSession = session.getAttributes();
-		String m_id = (String) httpSession.get("mem_id"); // 세션에 저장된 mem_id 기준 조회
-		return m_id;
+		String mem_nick = (String) httpSession.get("mem_nick"); // 세션에 저장된 mem_id 기준 조회
+		return mem_nick;
 	}
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		Map<String, Object> data = gson.fromJson(message.getPayload(), Map.class);
-		System.out.println("handleTextMessage:" + data);
+		System.out.println("handleTextMessage:" + data.toString());
+		
 		
 //		for (WebSocketSession sess: sessions) {
 //			sess.sendMessage(new TextMessage(senderId + ": " + message.getPayload()));

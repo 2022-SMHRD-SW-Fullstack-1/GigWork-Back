@@ -20,8 +20,8 @@ public class ChatService {
 	
 	private final ChatMapper chatMapper;
 
-	public List<ChattingRoom> enterChatPage(String id) {
-		return chatMapper.getChattingRoom(id);
+	public List<ChattingRoom> enterChatPage(String nick) {
+		return chatMapper.getChattingRoom(nick);
 	}
 	
 	public List<ChattingContent> getChatContent(String roomNum) {

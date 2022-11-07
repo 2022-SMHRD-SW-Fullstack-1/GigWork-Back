@@ -16,7 +16,7 @@ public interface ChatMapper {
 	@Select("select * from T_CHATTING_CONTENT")
 	public List<ChattingContent> getChattingContent();
 	
-	@Select("select * from T_CHATTING_ROOM where MEM_ID = #{id} or PARTNER_ID = #{id}")
+	@Select("select * from T_CHATTING_ROOM where MEM_ID = #{nick} or PARTNER_ID = #{nick}")
 	public List<ChattingRoom> getChattingRoom(String id);
 	
 	@Select("select * from T_CHATTING_CONTENT where CR_SEQ = #{roomNum}")
