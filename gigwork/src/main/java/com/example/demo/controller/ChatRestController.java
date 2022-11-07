@@ -30,7 +30,7 @@ public class ChatRestController {
 	
 	@PostMapping("/roomInfo")
 	public String sendRoomInfo(@RequestBody Map<String, String> data) {
-		List<ChattingRoom> chatRoomList = chatService.enterChatPage(data.get("id"));
+		List<ChattingRoom> chatRoomList = chatService.enterChatPage(data.get("nick"));
 		return gson.toJson(chatRoomList);
 	}
 	
