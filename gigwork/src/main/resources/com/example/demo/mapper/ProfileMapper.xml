@@ -5,6 +5,10 @@
 	<insert id="createProfile">
 		insert into t_profile values (#{id},#{say},#{imgSrc},#{cOne},#{cTwo},#{cThree},#{sido},#{gungu},to_date(#{openDate},'YYYY-MM-DD'),to_date(#{closeDate},'YYYY-MM-DD'))
 	</insert>
+	
+	<update id="correctionProfile">
+		update t_profile set say=#{say},img_src=#{imgSrc},cate_one=#{cOne},cate_two=#{cTwo},cate_three=#{cThree},sido=#{sido},gungu=#{gungu},open_date=to_date(#{openDate},'YYYY-MM-DD'),close_date=to_date(#{closeDate},'YYYY-MM-DD') where mem_id = #{id}
+	</update>
 
 	<select id="select" resultType="String">
 		select mem_id from t_member where age=27
@@ -35,5 +39,24 @@ and m.mem_id = #{id}
 		select count(*) from t_profile where mem_id=#{id}
 	</select>
 	
+	<select id="activeList" resultType="com.example.demo.model.Matching">
+		SELECT p.title ,p.post_cate, to_char(m.match_date,'YYYY-MM-DD')
+FROM T_MATCHING m , T_POST p
+WHERE m.POST_NUM = p.POST_NUM 
+AND match_id = #{id}
+ORDER BY m.match_date desc
+
+	</select>
+	
+	<select id="evaluation" resultType="com.example.demo.model.Manner">
+		SELECT evl_content , evl_point , evl_date
+FROM T_MANNER
+WHERE MEM_ID = #{id}
+ORDER BY EVL_DATE desc
+	</select>
+	
+	<select id="nameToId" resultType="String">
+		SELECT mem_id FROM T_MEMBER WHERE name=#{name}
+	</select>
 
 </mapper>
