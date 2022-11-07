@@ -1,5 +1,6 @@
 package com.example.demo.mapper;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -10,6 +11,12 @@ import com.example.demo.model.Post;
 @Mapper
 public interface PostMapper {
 	
-	public void writePost(Post postdata);
 
+
+	public void createPost(Map<String,Object> data);
+	
+	public List<Post> searchPost();
+	
+	public List<Post> bookmark();
+	
 }
