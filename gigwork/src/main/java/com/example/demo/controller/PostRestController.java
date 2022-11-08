@@ -37,17 +37,13 @@ public class PostRestController {
 		postService.createPost(data);
 }	
 
-	@PostMapping("/search")
-	public void searchPost() {
-		System.out.println(postService.searchPost());
-		postService.searchPost();
-	}
+
 	
 	Gson polistgson = new Gson();
 	JsonObject jsonObject = new JsonObject();
 	
 	@PostMapping("/postlist")
-	public void postlist() {
+	public String postlist() {
 		JsonArray ja = new JsonArray();
 		JsonObject jo = new JsonObject();
 		
@@ -69,12 +65,12 @@ public class PostRestController {
 			obj.addProperty("content", postlist.get(i).getContent());
 			obj.addProperty("img_src", postlist.get(i).getImg_src());
 			obj.addProperty("reg_date", postlist.get(i).getReg_date());
+			ja.add(obj);
 		}
 		jo.add("JasonArray", ja);
 		
-//		return jo.toString();
-		System.out.println(jo);
-		
+		return jo.toString();
+
 	}
 	
 //	@PostMapping("/pagenation")
