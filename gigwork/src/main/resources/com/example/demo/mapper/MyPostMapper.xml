@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.MyPostMapper">
+
+
+<!-- <select id="searchmyPost" resultType="com.example.demo.model.WishList">
+	select * from t_post
+</select> -->
+
+<select id="searchmyPost" resultType="com.example.demo.model.Post">
+	select * from t_post where post_num = #{num}
+	<!-- select * from t_post where post_num #{post_num} -->
+</select>
+
+<!-- <update id="/mybookmark">
+	update set null, post_num=#{num}, MEM_id=#{nick} from T_WISHLIST
+</update>
+ -->
+ 
+ <select id="mynick" resultType="com.example.demo.model.NamePost">
+ 	SELECT m.name , p.post_num , p.mem_id , p.post_cate , p.post_pay , p.POST_OFFER_YN , TO_CHAR(p.WORKTIME_S,'YYYY"년"MM"월"DD"일"HH24:MI')  ,TO_CHAR(p.WORKTIME_E,'YYYY"년"MM"월"DD"일"HH24:MI') ,p.LAT ,p.LNG ,p.URGENT ,p.TITLE ,p.CONTENT ,p.IMG_SRC ,TO_CHAR(p.reg_date,'YYYY"년"MM"월"DD"일"HH24:MI') 
+from t_post p , t_member m 
+WHERE p.MEM_ID = m.MEM_ID 
+AND p.post_num =#{post_num}
+ </select>
+
+</mapper>
