@@ -14,5 +14,6 @@ public class MyView {
 	private String say;
 	private String open_date;
 	private String close_date;
+	private String img_src;
 
 }

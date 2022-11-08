@@ -128,6 +128,7 @@ public class ProfileRestController {
 		obj.addProperty("say", view.getSay());
 		obj.addProperty("open_date", view.getOpen_date());
 		obj.addProperty("close_date", view.getClose_date());
+		obj.addProperty("img_src", view.getImg_src());
 
 		return obj.toString();
 		
