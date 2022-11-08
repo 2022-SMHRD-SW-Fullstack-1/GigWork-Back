@@ -36,7 +36,7 @@ public class ChatRestController {
 	
 	@PostMapping("/content")
 	public String getChatContent(@RequestBody Map<String, String> data) {
-		List<ChattingContent> chatCntList = chatService.getChatContent(data.get("roomNum"));
+		List<ChattingContent> chatCntList = chatService.getChatContent(data.get("roomnum"));
 		return gson.toJson(chatCntList);
 	}
 	

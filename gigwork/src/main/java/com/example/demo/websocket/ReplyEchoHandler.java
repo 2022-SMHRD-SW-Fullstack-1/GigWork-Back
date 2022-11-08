@@ -1,7 +1,5 @@
 package com.example.demo.websocket;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,7 +16,6 @@ public class ReplyEchoHandler extends TextWebSocketHandler {
 
 	// 로그인 중인 개별 유저를 저장
 	Map<String, WebSocketSession> users = new ConcurrentHashMap<String, WebSocketSession>();
-//	List<WebSocketSession> sessions = new ArrayList<>();
 
 	Gson gson = new Gson();
 
@@ -30,13 +27,7 @@ public class ReplyEchoHandler extends TextWebSocketHandler {
 		System.out.println("afterConnectionEstablished:" + session);
 		String[] uri = session.getUri().toString().split("/");
 		users.put(uri[uri.length - 1], session);
-	}
-
-	// 접속한 유저의 http세션을 조회하여 id를 얻는 함수
-	private String getMemberId(WebSocketSession session) {
-		Map<String, Object> httpSession = session.getAttributes();
-		String mem_nick = (String) httpSession.get("mem_nick"); // 세션에 저장된 mem_id 기준 조회
-		return mem_nick;
+		System.out.println(users.toString());
 	}
 
 	@Override
@@ -44,10 +35,10 @@ public class ReplyEchoHandler extends TextWebSocketHandler {
 		Map<String, Object> data = gson.fromJson(message.getPayload(), Map.class);
 		System.out.println("handleTextMessage:" + data.toString());
 		
+		if(users.containsKey(data.get("sendto"))) {
+			users.get(data.get("sendto")).sendMessage(new TextMessage(message.getPayload()));
+		}
 		
-//		for (WebSocketSession sess: sessions) {
-//			sess.sendMessage(new TextMessage(senderId + ": " + message.getPayload()));
-//		}
 	}
 
 	@Override

@@ -16,10 +16,10 @@ public interface ChatMapper {
 	@Select("select * from T_CHATTING_CONTENT")
 	public List<ChattingContent> getChattingContent();
 	
-	@Select("select * from T_CHATTING_ROOM where MEM_ID = #{nick} or PARTNER_ID = #{nick}")
-	public List<ChattingRoom> getChattingRoom(String id);
+	@Select("select * from T_CHATTING_ROOM where MEM_NICK = #{nick} or PARTNER_NICK = #{nick}")
+	public List<ChattingRoom> getChattingRoom(String nick);
 	
-	@Select("select * from T_CHATTING_CONTENT where CR_SEQ = #{roomNum}")
+	@Select("select * from T_CHATTING_CONTENT where CR_SEQ = #{roomNum} order by CC_SEQ")
 	public List<ChattingContent> getChatContent(String roomNum);
 	
 	public void putChatContent(ChattingContent data);
