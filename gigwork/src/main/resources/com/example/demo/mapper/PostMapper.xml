@@ -8,13 +8,13 @@
 
 
 <insert id="createPost">
-	insert into t_post values (null,#{memId},#{postCate},#{postPay},#{postOffer},to_date(#{workStart},'YYYY-MM-DD"T"HH24:MI'),to_date(#{workEnd},'YYYY-MM-DD"T"HH24:MI'),#{lat},#{lng},#{urgent},#{title},#{content},#{imgSrc},to_date('2022-11-04','YYYY-MM-DD'))
+	insert into t_post values (null,#{memId},#{postCate},#{postPay},#{postOffer},to_date(#{workStart},'YYYY-MM-DD"T"HH24:MI'),to_date(#{workEnd},'YYYY-MM-DD"T"HH24:MI'),#{lat},#{lng},#{urgent},#{title},#{content},#{imgSrc},sysdate)
 </insert>
 
 
 
 <select id="searchPost" resultType="com.example.demo.model.Post">
-	SELECT POST_NUM  , MEM_ID , POST_CATE , POST_PAY  , POST_OFFER_YN  , TO_CHAR(WORKTIME_S,'YYYY-MM-DD"T"HH24:MI') as worktime_s ,TO_CHAR( WORKTIME_E,'YYYY-MM-DD"T"HH24:MI' ) as worktime_e,LAT ,LNG ,URGENT ,TITLE ,CONTENT ,IMG_SRC ,TO_CHAR( REG_DATE,'YYYY-MM-DD"T"HH24:MI' ) as reg_date  FROM T_POST 
+	SELECT POST_NUM  , MEM_ID , POST_CATE , POST_PAY  , POST_OFFER_YN  , TO_CHAR(WORKTIME_S,'YYYY-MM-DD"T"HH24:MI') as worktime_s ,TO_CHAR( WORKTIME_E,'YYYY-MM-DD"T"HH24:MI' ) as worktime_e,LAT ,LNG ,URGENT ,TITLE ,CONTENT ,IMG_SRC ,TO_CHAR( REG_DATE,'YYYY-MM-DD"T"HH24:MI' ) as reg_date  FROM T_POST ORDER BY reg_date DESC  
 </select>
 
 <insert id="bookmakr">
