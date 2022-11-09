@@ -65,6 +65,7 @@ public class PostRestController {
 			obj.addProperty("content", postlist.get(i).getContent());
 			obj.addProperty("img_src", postlist.get(i).getImg_src());
 			obj.addProperty("reg_date", postlist.get(i).getReg_date());
+			obj.addProperty("status", postlist.get(i).getStatus());
 			ja.add(obj);
 		}
 		jo.add("JasonArray", ja);
