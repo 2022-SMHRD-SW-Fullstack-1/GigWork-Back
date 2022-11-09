@@ -20,9 +20,9 @@ WHERE p.MEM_ID = m.MEM_ID
 AND p.post_num =#{post_num}
  </select>
  
-<!--   <select id="searchBookmark" resultType="int">
+<select id="searchBookmark" resultType="int">
  	SELECT count(*) FROM T_WISHLIST WHERE post_num=#{post_num} and mem_id=#{mem_id}
- </select>-->
+</select>
  
  <insert id="makeNewBookmark">
  	insert into t_wishlist values (null, #{post_num}, #{mem_id})

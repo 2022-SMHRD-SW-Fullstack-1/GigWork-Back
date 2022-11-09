@@ -43,7 +43,7 @@ public class MyService {
 		
 		if(searchBookmark(data)==0) {
 		mypostMapper.makeNewBookmark(data);
-		}else{
+		}else if(searchBookmark(data)==1){
 		mypostMapper.updateBookmark(data);
 		}	
 
