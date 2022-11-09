@@ -28,4 +28,15 @@ public class AlertRestController {
 		List<Alert> alertList = alertService.getAlertList(data.get("mem_nick"));
 		return gson.toJson(alertList);
 	}
+	
+	@PostMapping("/deleteAlert")
+	public void deleteAlert(@RequestBody Map<String, String> data) {
+		alertService.deleteAlert(data.get("alert_seq"));
+	}
+	
+	@PostMapping("/addChatAlert")
+	public void addChatAlert(@RequestBody Map<String, String> data) {
+		System.out.println(data.toString());
+		alertService.addChatAlert(data);
+	}
 }

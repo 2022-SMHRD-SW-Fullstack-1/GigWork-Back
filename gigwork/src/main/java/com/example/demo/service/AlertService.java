@@ -17,18 +17,17 @@ public class AlertService {
 	
 	private final AlertMapper alertMapper;
 	
-	public void addChatAlert(Map<String, Object> data) {
-		Alert alert = new Alert(0, 
-				(String)data.get("sendto"), 
-				(String)data.get("msg"), 
-				(Date)data.get("msg_time"), 
-				(String)data.get("talker"), 
-				"t");
+	public void addChatAlert(Map<String, String> data) {
+		Alert alert = new Alert(0, data.get("mem_nick"), data.get("alert_cnt"), data.get("alert_time"), data.get("sendfrom"), data.get("ckecking"));
 		alertMapper.addChatAlert(alert);
 	}
 	
 	public List<Alert> getAlertList(String nick) {
 		return alertMapper.getAlertList(nick);
+	}
+	
+	public void deleteAlert(String alert_seq) {
+		alertMapper.deleteAlert(alert_seq);
 	}
 
 }

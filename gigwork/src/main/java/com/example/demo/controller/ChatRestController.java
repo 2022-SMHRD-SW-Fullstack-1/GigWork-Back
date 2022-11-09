@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.ChattingContent;
 import com.example.demo.model.ChattingRoom;
+import com.example.demo.service.AlertService;
 import com.example.demo.service.ChatService;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -25,6 +26,7 @@ import lombok.RequiredArgsConstructor;
 public class ChatRestController {
 
 	private final ChatService chatService;
+	private final AlertService alertService;
 	
 	Gson gson = new Gson();
 	

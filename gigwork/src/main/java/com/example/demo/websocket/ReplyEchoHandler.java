@@ -35,12 +35,9 @@ public class ReplyEchoHandler extends TextWebSocketHandler {
 		Map<String, Object> data = gson.fromJson(message.getPayload(), Map.class);
 		System.out.println("handleTextMessage:" + data.toString());
 		
-		//alertService.addChatAlert(data);
-		
 		if(users.containsKey(data.get("sendto"))) {
 			users.get(data.get("sendto")).sendMessage(new TextMessage(message.getPayload()));
 		}
-		
 	}
 
 	@Override
