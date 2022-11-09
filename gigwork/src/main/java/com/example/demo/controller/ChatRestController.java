@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.ChattingContent;
 import com.example.demo.model.ChattingRoom;
+import com.example.demo.model.Post;
 import com.example.demo.service.AlertService;
 import com.example.demo.service.ChatService;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import lombok.RequiredArgsConstructor;
 
@@ -52,4 +51,21 @@ public class ChatRestController {
 		chatService.createChatRoom(data);
 	}
 	
+	@PostMapping("getPostInfo")
+	public Post getPostInfo(@RequestBody Map<String, String> data) {
+		return chatService.getPostInfo(data);
+	}
+	
+	@PostMapping("updateCR")
+	public Post updateCR(@RequestBody Map<String, String> data) {
+		chatService.updateCR(data.get("roomnum"));
+		chatService.updatePost(data.get("post_num"));
+		return chatService.getPostInfo(data);
+	}
+	
+	@PostMapping("updateCR2")
+	public Post updateCR2(@RequestBody Map<String, String> data) {
+		chatService.updatePost2(data.get("post_num"));
+		return chatService.getPostInfo(data);
+	}
 }

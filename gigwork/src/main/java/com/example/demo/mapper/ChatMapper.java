@@ -6,9 +6,11 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.demo.model.ChattingContent;
 import com.example.demo.model.ChattingRoom;
+import com.example.demo.model.Post;
 
 @Mapper
 public interface ChatMapper {
@@ -26,4 +28,16 @@ public interface ChatMapper {
 	
 	@Insert("insert into T_CHATTING_ROOM values (null, #{mem_nick}, sysdate, #{partner_nick}, 'c', #{post_num})")
 	public void createChatRoom(ChattingRoom data);
+	
+	@Select("select * from T_POST where post_num=#{post_num}")
+	public Post getPostInfo(int post_num);
+	
+	@Update("update T_CHATTING_ROOM set cr_status='t' where cr_seq=#{roomnum}")
+	public void updateCR(int roomnum);
+	
+	@Update("update T_POST set status='거래중' where post_num=#{post_num}")
+	public void updatePost(int post_num);
+	
+	@Update("update T_POST set status='거래완료' where post_num=#{post_num}")
+	public void updatePost2(int post_num);
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.demo.mapper.ChatMapper;
 import com.example.demo.model.ChattingContent;
 import com.example.demo.model.ChattingRoom;
+import com.example.demo.model.Post;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,7 +32,7 @@ public class ChatService {
 		chatMapper.putChatContent(chatContent);
 	}
 	
-	public void createChatRoom(@RequestBody Map<String, String> data) {
+	public void createChatRoom(Map<String, String> data) {
 		ChattingRoom chatroom = new ChattingRoom();
 		chatroom.setMem_nick(data.get("mem_nick"));
 		chatroom.setPartner_nick(data.get("partner_nick"));
@@ -39,6 +40,20 @@ public class ChatService {
 		chatMapper.createChatRoom(chatroom);
 	}
 	
-
+	public Post getPostInfo(Map<String, String> data) {
+		return chatMapper.getPostInfo(Integer.parseInt(data.get("post_num")));
+	}
+	
+	public void updateCR(String roomnum) {
+		chatMapper.updateCR(Integer.parseInt(roomnum));
+	}
+	
+	public void updatePost(String post_num) {
+		chatMapper.updatePost(Integer.parseInt(post_num));
+	}
+	
+	public void updatePost2(String post_num) {
+		chatMapper.updatePost2(Integer.parseInt(post_num));
+	}
 	
 }
