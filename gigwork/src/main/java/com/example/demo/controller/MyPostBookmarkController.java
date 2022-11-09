@@ -41,12 +41,18 @@ public class MyPostBookmarkController {
 //public List<Post> searchmyPost(@RequestBody Map<String,Object> num) {
 //	return myService.searchmyPost(num);
 //}
+	
+@PostMapping("/searchBookmark")
+public int searchBookmark(@RequestBody Map<String,Object> data) {
+	System.out.println(data);	
+	return myService.searchBookmark(data);
+}
 
-//@PostMapping("/mybookmark")
-//public void myBookmark(@RequestBody Map<String,Object> data) {
-//
-//	return myService.myBookmark(data);
-//}
+@PostMapping("/mybookmark")
+public void myBookmark(@RequestBody Map<String,Object> data) {
+	System.out.println(data);
+	myService.myBookmark(data);
+}
 
 @PostMapping("/mypost")
 public String mynick(@RequestBody Map<String,Object> mem_id) {
