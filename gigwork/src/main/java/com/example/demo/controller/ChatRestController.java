@@ -47,4 +47,9 @@ public class ChatRestController {
 		chatService.putChatContent(data);
 	}
 	
+	@PostMapping("/createCR")
+	public void createChatRoom(@RequestBody Map<String, String> data) {
+		chatService.createChatRoom(data);
+	}
+	
 }

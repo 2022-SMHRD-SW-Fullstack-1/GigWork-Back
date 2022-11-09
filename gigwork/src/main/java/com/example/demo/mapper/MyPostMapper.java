@@ -26,4 +26,10 @@ public interface MyPostMapper {
 	public List<Post> searchmyPost(@RequestBody Map<String,Object> num);
 	
 	public NamePost mynick(@RequestBody Map<String,Object> mem_id);
+	
+	public int searchBookmark(@RequestBody Map<String,Object> data);
+	
+	public void makeNewBookmark(@RequestBody Map<String,Object> data);
+	
+	public void updateBookmark(@RequestBody Map<String,Object> data);
 }

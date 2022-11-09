@@ -23,4 +23,7 @@ public interface ChatMapper {
 	public List<ChattingContent> getChatContent(String roomNum);
 	
 	public void putChatContent(ChattingContent data);
+	
+	@Insert("insert into T_CHATTING_ROOM values (null, #{mem_nick}, sysdate, #{partner_nick}, 'c', #{post_num})")
+	public void createChatRoom(ChattingRoom data);
 }

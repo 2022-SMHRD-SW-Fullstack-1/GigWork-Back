@@ -34,17 +34,21 @@ public class MyService {
 	public List<Post> searchmyPost(@RequestBody Map<String,Object> num) {
 		return mypostMapper.searchmyPost(num);
 	}
-//	
-//	public void myBookmark(@RequestBody Map<String,Object> data) {
-//		
-//		if(myBookmark(data).checkExist == null) {
-//			return mypostMapper.makeNewBookmark(data);
-//		}else if{
-//			return mypostMapper.updateBookmark(data);
-//			
-//		}
-//		
-//}
+	
+	public int searchBookmark(@RequestBody Map<String,Object> data) {
+		return mypostMapper.searchBookmark(data);
+	}
+	
+	public void myBookmark(@RequestBody Map<String,Object> data) {
+		
+		if(searchBookmark(data)==0) {
+		mypostMapper.makeNewBookmark(data);
+		}else{
+		mypostMapper.updateBookmark(data);
+		}	
+
+		
+}
 	
 	public NamePost mynick(@RequestBody Map<String,Object> mem_id) {
 		return mypostMapper.mynick(mem_id);

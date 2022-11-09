@@ -12,10 +12,6 @@
 	<!-- select * from t_post where post_num #{post_num} -->
 </select>
 
-<!-- <update id="/mybookmark">
-	update set null, post_num=#{num}, MEM_id=#{nick} from T_WISHLIST
-</update>
- -->
  
  <select id="mynick" resultType="com.example.demo.model.NamePost">
  	SELECT m.name , p.post_num , p.mem_id , p.post_cate , p.post_pay , p.POST_OFFER_YN , TO_CHAR(p.WORKTIME_S,'YYYY"년"MM"월"DD"일"HH24:MI')  ,TO_CHAR(p.WORKTIME_E,'YYYY"년"MM"월"DD"일"HH24:MI') ,p.LAT ,p.LNG ,p.URGENT ,p.TITLE ,p.CONTENT ,p.IMG_SRC ,TO_CHAR(p.reg_date,'YYYY"년"MM"월"DD"일"HH24:MI') 
@@ -23,5 +19,17 @@ from t_post p , t_member m
 WHERE p.MEM_ID = m.MEM_ID 
 AND p.post_num =#{post_num}
  </select>
+ 
+<!--   <select id="searchBookmark" resultType="int">
+ 	SELECT count(*) FROM T_WISHLIST WHERE post_num=#{post_num} and mem_id=#{mem_id}
+ </select>-->
+ 
+ <insert id="makeNewBookmark">
+ 	insert into t_wishlist values (null, #{post_num}, #{mem_id})
+ </insert>
+ 
+ <delete id="updateBookmark">
+ 	delete from t_wishlist where post_num = #{post_num}
+ </delete>
 
 </mapper>

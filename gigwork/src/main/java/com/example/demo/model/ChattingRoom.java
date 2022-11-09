@@ -11,4 +11,5 @@ public class ChattingRoom {
 	private Date cr_date;
 	private String partner_nick;
 	private char cr_status;
+	private int post_num;
 }
