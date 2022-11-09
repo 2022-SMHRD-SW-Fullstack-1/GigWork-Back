@@ -51,6 +51,7 @@ public class MyService {
 }
 	
 	public NamePost mynick(@RequestBody Map<String,Object> mem_id) {
-		return mypostMapper.mynick(mem_id);
+		
+		return mypostMapper.mynick(Integer.parseInt((String)mem_id.get("post_num")));
 	}
 }
