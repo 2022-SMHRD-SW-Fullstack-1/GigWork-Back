@@ -8,7 +8,7 @@
 
 
 <insert id="createPost">
-	insert into t_post values (null,#{memId},#{postCate},#{postPay},#{postOffer},to_date(#{workStart},'YYYY-MM-DD"T"HH24:MI'),to_date(#{workEnd},'YYYY-MM-DD"T"HH24:MI'),#{lat},#{lng},#{urgent},#{title},#{content},#{imgSrc},sysdate,"거래전")
+	insert into t_post values (null,#{memId},#{postCate},#{postPay},#{postOffer},to_date(#{workStart},'YYYY-MM-DD"T"HH24:MI'),to_date(#{workEnd},'YYYY-MM-DD"T"HH24:MI'),#{lat},#{lng},#{urgent},#{title},#{content},#{imgSrc},sysdate,'거래전')
 </insert>
 
 

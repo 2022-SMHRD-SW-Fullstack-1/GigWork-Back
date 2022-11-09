@@ -34,6 +34,7 @@ public class PostRestController {
 	@PostMapping("/create")
 	public void createPost(@RequestBody Map<String,Object> data) {
 		
+	
 		postService.createPost(data);
 }	
 
