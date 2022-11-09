@@ -55,8 +55,9 @@ public void myBookmark(@RequestBody Map<String,Object> data) {
 }
 
 @PostMapping("/mypost")
-public String mynick(@RequestBody Map<String,Object> mem_id) {
+public String mynick(@RequestBody Map<String,String> mem_id) {
 	
+	System.out.println(mem_id.toString());
 	NamePost view = myService.mynick(mem_id);
 	JsonObject obj = new JsonObject();
 	obj.addProperty("name", view.getName());
