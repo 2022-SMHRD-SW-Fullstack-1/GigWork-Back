@@ -54,6 +54,15 @@ public void myBookmark(@RequestBody Map<String,Object> data) {
 	myService.myBookmark(data);
 }
 
+@PostMapping("/getmybookmark")
+public List<Map<String,Object>> getmybookmark(@RequestBody Map<String,Object> mem_id) {
+	System.out.println(mem_id);
+	return myService.getmybookmark(mem_id);
+	
+}
+
+
+
 @PostMapping("/mypost")
 public String mynick(@RequestBody Map<String,String> mem_id) {
 	

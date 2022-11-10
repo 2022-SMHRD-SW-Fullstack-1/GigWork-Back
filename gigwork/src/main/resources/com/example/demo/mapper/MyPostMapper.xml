@@ -12,6 +12,13 @@
 	<!-- select * from t_post where post_num #{post_num} -->
 </select>
 
+ <select id="getmybookmark" resultType="Map">
+SELECT p.title, p.post_pay, t.post_num, p.WORKTIME_S
+FROM t_post p, T_WISHLIST t
+WHERE t.mem_id = #{mem_id} AND 
+t.post_num = p.POST_NUM
+
+ </select>
  
  <select id="mynick" resultType="com.example.demo.model.NamePost">
  	SELECT m.name , p.post_num , p.mem_id , p.post_cate , p.post_pay , p.POST_OFFER_YN , TO_CHAR(p.WORKTIME_S,'YYYY"년"MM"월"DD"일"HH24:MI')  ,TO_CHAR(p.WORKTIME_E,'YYYY"년"MM"월"DD"일"HH24:MI') ,p.LAT ,p.LNG ,p.URGENT ,p.TITLE ,p.CONTENT ,p.IMG_SRC ,TO_CHAR(p.reg_date,'YYYY"년"MM"월"DD"일"HH24:MI') 
@@ -31,5 +38,5 @@ AND p.post_num =#{post_num}
  <delete id="updateBookmark">
  	delete from t_wishlist where post_num = #{post_num}
  </delete>
-
+ 
 </mapper>

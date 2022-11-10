@@ -32,4 +32,8 @@ public interface MyPostMapper {
 	public void makeNewBookmark(@RequestBody Map<String,Object> data);
 	
 	public void updateBookmark(@RequestBody Map<String,Object> data);
+	
+	public List<Map<String,Object>> getmybookmark(@RequestBody Map<String,Object> mem_id);
+	
+	
 }
