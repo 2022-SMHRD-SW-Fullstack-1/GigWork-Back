@@ -40,4 +40,10 @@ public interface ProfileMapper {
 	public void evl(@RequestBody Map<String,Object> info);
 	
 	public void evl5(@RequestBody Map<String,Object> name);
+	
+	public void evl4(@RequestBody Map<String,Object> name);
+	
+	public void evl2(@RequestBody Map<String,Object> name);
+	
+	public void evl1(@RequestBody Map<String,Object> name);
 }

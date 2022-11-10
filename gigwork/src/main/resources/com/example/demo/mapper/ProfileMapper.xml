@@ -64,8 +64,19 @@ ORDER BY EVL_DATE desc
 	</insert>
 
 	<update id="evl5">
-		update t_member set mem_trust=mem_trust+2 where name=${name}
-
+		update t_member set mem_trust=mem_trust+2 where name=#{name}
 	</update>
-
+	
+	<update id="evl4">
+		update t_member set mem_trust=mem_trust+1 where name=#{name}
+	</update>
+	
+	<update id="evl2">
+		update t_member set mem_trust=mem_trust-1 where name=#{name}
+	</update>
+	
+	<update id="evl1">
+		update t_member set mem_trust=mem_trust-2 where name=#{name}
+	</update>
+	
 </mapper>

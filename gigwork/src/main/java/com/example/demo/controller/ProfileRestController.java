@@ -198,6 +198,21 @@ public class ProfileRestController {
 		profileService.evl5(name);
 	}
 	
+	@PostMapping("evl4")
+	public void evl4(@RequestBody Map<String,Object> name) {
+		profileService.evl4(name);
+	}
+	
+	@PostMapping("evl2")
+	public void evl2(@RequestBody Map<String,Object> name) {
+		profileService.evl2(name);
+	}
+	
+	@PostMapping("evl1")
+	public void evl1(@RequestBody Map<String,Object> name) {
+		profileService.evl1(name);
+	}
+	
 }
 
 

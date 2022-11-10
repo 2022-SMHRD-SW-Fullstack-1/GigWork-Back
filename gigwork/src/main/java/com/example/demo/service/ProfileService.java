@@ -71,4 +71,16 @@ public class ProfileService {
 		profileMapper.evl5(name);
 	}
 	
+	public void evl4(@RequestBody Map<String,Object> name) {
+		profileMapper.evl4(name);
+	}
+	
+	public void evl2(@RequestBody Map<String,Object> name) {
+		profileMapper.evl2(name);
+	}
+	
+	public void evl1(@RequestBody Map<String,Object> name) {
+		profileMapper.evl1(name);
+	}
+	
 }
