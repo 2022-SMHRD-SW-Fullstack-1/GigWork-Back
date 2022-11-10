@@ -36,6 +36,7 @@ public class ReplyEchoHandler extends TextWebSocketHandler {
 		System.out.println("handleTextMessage:" + data.toString());
 		
 		if(users.containsKey(data.get("sendto"))) {
+			System.out.println("데이터 뿌려짐");
 			users.get(data.get("sendto")).sendMessage(new TextMessage(message.getPayload()));
 		}
 	}

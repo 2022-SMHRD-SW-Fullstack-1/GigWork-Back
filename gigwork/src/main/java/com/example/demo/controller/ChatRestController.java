@@ -68,4 +68,9 @@ public class ChatRestController {
 		chatService.updatePost2(data.get("post_num"));
 		return chatService.getPostInfo(data);
 	}
+	
+	@PostMapping("makeOffer")
+	public void makeOffer(@RequestBody Map<String, String> data) {
+		chatService.makeOffer(data);
+	}
 }

@@ -55,5 +55,9 @@ public class PostService {
 		return postMapper.bookmark();
 	}
 	
+	public List<Post> getMainPost(){
+		return postMapper.getMainPost();
+	}
+	
 
 }

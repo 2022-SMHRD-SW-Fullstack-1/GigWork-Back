@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +29,7 @@ public class ChatService {
 	}
 	
 	public void putChatContent(Map<String, String> data) {
-		ChattingContent chatContent = new ChattingContent(0, data.get("talker"), data.get("msg"), data.get("msg_time"), Integer.parseInt(data.get("cr_seq")));
+		ChattingContent chatContent = new ChattingContent(0, data.get("talker"), data.get("msg"), null, Integer.parseInt(data.get("cr_seq")));
 		chatMapper.putChatContent(chatContent);
 	}
 	
@@ -54,6 +55,16 @@ public class ChatService {
 	
 	public void updatePost2(String post_num) {
 		chatMapper.updatePost2(Integer.parseInt(post_num));
+	}
+	
+	public void makeOffer(Map<String, String> data) {
+		ChattingRoom chatroom = new ChattingRoom();
+		chatroom.setMem_nick(data.get("mem_nick"));
+		chatroom.setPartner_nick(data.get("partner_nick"));
+		chatroom.setPost_num(Integer.parseInt(data.get("post_num")));
+		chatMapper.createChatRoom(chatroom);
+		ChattingContent chatContent = new ChattingContent(0, data.get("mem_nick"), data.get("mem_nick")+"님이 "+data.get("post_title")+ " 글에 가격 제안을 보냈어요! ["+data.get("wantPay")+"원]", null, chatMapper.getChatRoom().getCr_seq());
+		chatMapper.putChatContent(chatContent);
 	}
 	
 }

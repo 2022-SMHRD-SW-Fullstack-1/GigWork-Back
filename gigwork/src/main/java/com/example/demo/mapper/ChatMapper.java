@@ -29,6 +29,9 @@ public interface ChatMapper {
 	@Insert("insert into T_CHATTING_ROOM values (null, #{mem_nick}, sysdate, #{partner_nick}, 'c', #{post_num})")
 	public void createChatRoom(ChattingRoom data);
 	
+	@Select("select * from ( select * from T_CHATTING_ROOM order by post_num desc) where rownum = 1")
+	public ChattingRoom getChatRoom();
+	
 	@Select("select * from T_POST where post_num=#{post_num}")
 	public Post getPostInfo(int post_num);
 	
