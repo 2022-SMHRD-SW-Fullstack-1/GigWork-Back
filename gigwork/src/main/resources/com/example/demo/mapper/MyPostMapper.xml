@@ -17,6 +17,7 @@ SELECT p.title, p.post_pay, t.post_num, p.WORKTIME_S
 FROM t_post p, T_WISHLIST t
 WHERE t.mem_id = #{mem_id} AND 
 t.post_num = p.POST_NUM
+order by p.WORKTIME_S desc
 
  </select>
  
