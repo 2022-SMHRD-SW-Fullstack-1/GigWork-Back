@@ -79,4 +79,8 @@ ORDER BY EVL_DATE desc
 		update t_member set mem_trust=mem_trust-2 where name=#{name}
 	</update>
 	
+	<select id="privacy" resultType='com.example.demo.model.Privacy'>
+		select p.img_src , m.name , m.mem_id , m.mem_phone from t_profile p , t_member m where p.mem_id = m.mem_id and m.mem_id =#{id}
+	</select>
+	
 </mapper>

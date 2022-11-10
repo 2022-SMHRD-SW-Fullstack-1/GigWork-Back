@@ -13,6 +13,7 @@ import com.example.demo.model.Matching;
 import com.example.demo.model.Member;
 import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
+import com.example.demo.model.Privacy;
 import com.example.demo.model.ProfileList;
 
 import lombok.RequiredArgsConstructor;
@@ -81,6 +82,10 @@ public class ProfileService {
 	
 	public void evl1(@RequestBody Map<String,Object> name) {
 		profileMapper.evl1(name);
+	}
+	
+	public Privacy privacy(@RequestBody Map<String,Object> id) {
+		return profileMapper.privacy(id);
 	}
 	
 }

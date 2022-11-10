@@ -18,6 +18,7 @@ import com.example.demo.model.Matching;
 import com.example.demo.model.Member;
 import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
+import com.example.demo.model.Privacy;
 import com.example.demo.model.ProfileList;
 import com.example.demo.service.ProfileService;
 import com.google.gson.Gson;
@@ -211,6 +212,20 @@ public class ProfileRestController {
 	@PostMapping("evl1")
 	public void evl1(@RequestBody Map<String,Object> name) {
 		profileService.evl1(name);
+	}
+	
+	@PostMapping("privacy")
+	public String privacy(@RequestBody Map<String,Object> id) {
+		Privacy view = profileService.privacy(id);
+
+	
+		JsonObject obj = new JsonObject();
+		obj.addProperty("img_src", view.getImg_src());
+		obj.addProperty("name", view.getName());
+		obj.addProperty("mem_id", view.getMem_id());
+		obj.addProperty("mem_phone", view.getMem_phone());
+
+		return obj.toString();
 	}
 	
 }
