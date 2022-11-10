@@ -65,6 +65,7 @@ public class ChatRestController {
 	
 	@PostMapping("updateCR2")
 	public Post updateCR2(@RequestBody Map<String, String> data) {
+		chatService.addMatching(data);
 		chatService.updatePost2(data.get("post_num"));
 		return chatService.getPostInfo(data);
 	}

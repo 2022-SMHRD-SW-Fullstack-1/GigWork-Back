@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.demo.mapper.ChatMapper;
 import com.example.demo.model.ChattingContent;
 import com.example.demo.model.ChattingRoom;
+import com.example.demo.model.Matching;
 import com.example.demo.model.Post;
 
 import lombok.RequiredArgsConstructor;
@@ -67,4 +68,8 @@ public class ChatService {
 		chatMapper.putChatContent(chatContent);
 	}
 	
+	public void addMatching(Map<String, String> data) {
+		Matching matching = new Matching(0, data.get("post_num"), data.get("partner_nick"), null);
+		chatMapper.addMatching(matching);
+	}
 }

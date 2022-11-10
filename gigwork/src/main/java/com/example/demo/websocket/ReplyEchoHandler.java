@@ -34,8 +34,9 @@ public class ReplyEchoHandler extends TextWebSocketHandler {
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		Map<String, Object> data = gson.fromJson(message.getPayload(), Map.class);
 		System.out.println("handleTextMessage:" + data.toString());
+		System.out.println(data.get("talk"));
 		
-		if(users.containsKey(data.get("sendto"))) {
+		if(data.get("talker") != null && users.containsKey(data.get("sendto"))) {
 			System.out.println("데이터 뿌려짐");
 			users.get(data.get("sendto")).sendMessage(new TextMessage(message.getPayload()));
 		}
