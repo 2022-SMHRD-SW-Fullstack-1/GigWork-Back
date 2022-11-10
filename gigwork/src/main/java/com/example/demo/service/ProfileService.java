@@ -13,6 +13,7 @@ import com.example.demo.model.Matching;
 import com.example.demo.model.Member;
 import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
+import com.example.demo.model.Post;
 import com.example.demo.model.Privacy;
 import com.example.demo.model.ProfileList;
 
@@ -86,6 +87,10 @@ public class ProfileService {
 	
 	public Privacy privacy(@RequestBody Map<String,Object> id) {
 		return profileMapper.privacy(id);
+	}
+	
+	public List<Post> bringPost(@RequestBody Map<String,Object> id){
+		return profileMapper.bringPost(id);
 	}
 	
 }

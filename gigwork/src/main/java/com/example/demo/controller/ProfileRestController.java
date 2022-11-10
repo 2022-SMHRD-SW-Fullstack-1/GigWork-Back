@@ -18,6 +18,7 @@ import com.example.demo.model.Matching;
 import com.example.demo.model.Member;
 import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
+import com.example.demo.model.Post;
 import com.example.demo.model.Privacy;
 import com.example.demo.model.ProfileList;
 import com.example.demo.service.ProfileService;
@@ -228,13 +229,38 @@ public class ProfileRestController {
 		return obj.toString();
 	}
 	
+	@PostMapping("bringPost")
+	public String bringPost(@RequestBody Map<String,Object> id) {
+		
+		
+		JsonArray ja = new JsonArray();
+		JsonObject jo = new JsonObject();
+
+		List<Post> postlist = profileService.bringPost(id);
+
+		for (int i = 0; i < postlist.size(); i++) {
+			JsonObject obj = new JsonObject();
+			obj.addProperty("post_num", postlist.get(i).getPost_num());
+			obj.addProperty("mem_id", postlist.get(i).getMem_id());
+			obj.addProperty("post_cate", postlist.get(i).getPost_cate());
+			obj.addProperty("post_pay", postlist.get(i).getPost_pay());
+			obj.addProperty("post_offer_yn", postlist.get(i).getPost_offer_yn());
+			obj.addProperty("worktime_s", postlist.get(i).getWorktime_s());
+			obj.addProperty("worktime_e", postlist.get(i).getWorktime_e());
+			obj.addProperty("lat", postlist.get(i).getLat());
+			obj.addProperty("lng", postlist.get(i).getLng());
+			obj.addProperty("urgent", postlist.get(i).getUrgent());
+			obj.addProperty("title", postlist.get(i).getTitle());
+			obj.addProperty("content", postlist.get(i).getContent());
+			obj.addProperty("img_src", postlist.get(i).getImg_src());
+			obj.addProperty("reg_date", postlist.get(i).getReg_date());
+			obj.addProperty("status", postlist.get(i).getStatus());
+			ja.add(obj);
+		}
+		jo.add("JasonArray", ja);
+
+		return jo.toString();
+	}
+	
 }
-
-
-
-
-
-
-
-
 

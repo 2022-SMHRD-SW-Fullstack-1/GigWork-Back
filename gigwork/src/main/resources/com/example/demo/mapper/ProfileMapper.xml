@@ -83,4 +83,8 @@ ORDER BY EVL_DATE desc
 		select p.img_src , m.name , m.mem_id , m.mem_phone from t_profile p , t_member m where p.mem_id = m.mem_id and m.mem_id =#{id}
 	</select>
 	
+	<select id="bringPost" resultType="com.example.demo.model.Post">
+	SELECT POST_NUM  , MEM_ID , POST_CATE , POST_PAY  , POST_OFFER_YN  , TO_CHAR(WORKTIME_S,'YYYY-MM-DD"T"HH24:MI') as worktime_s ,TO_CHAR( WORKTIME_E,'YYYY-MM-DD"T"HH24:MI' ) as worktime_e,LAT ,LNG ,URGENT ,TITLE ,CONTENT ,IMG_SRC ,TO_CHAR( REG_DATE,'YYYY-MM-DD"T"HH24:MI' ) as reg_date , status  FROM T_POST where mem_id = #{mem_id} ORDER BY reg_date DESC  
+</select>
+	
 </mapper>

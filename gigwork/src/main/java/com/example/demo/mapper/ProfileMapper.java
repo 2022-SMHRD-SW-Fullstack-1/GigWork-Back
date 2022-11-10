@@ -12,6 +12,7 @@ import com.example.demo.model.Matching;
 import com.example.demo.model.Member;
 import com.example.demo.model.MyView;
 import com.example.demo.model.OtherView;
+import com.example.demo.model.Post;
 import com.example.demo.model.Privacy;
 import com.example.demo.model.ProfileList;
 
@@ -49,4 +50,6 @@ public interface ProfileMapper {
 	public void evl1(@RequestBody Map<String,Object> name);
 	
 	public Privacy privacy(@RequestBody Map<String,Object> id);
+
+	public List<Post> bringPost(@RequestBody Map<String,Object> id);
 }
