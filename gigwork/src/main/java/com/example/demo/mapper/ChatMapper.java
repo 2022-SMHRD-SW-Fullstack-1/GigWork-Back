@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import com.example.demo.model.ChattingContent;
 import com.example.demo.model.ChattingRoom;
 import com.example.demo.model.Matching;
+import com.example.demo.model.MatchingInsert;
 import com.example.demo.model.Post;
 
 @Mapper
@@ -45,6 +46,9 @@ public interface ChatMapper {
 	@Update("update T_POST set status='거래완료' where post_num=#{post_num}")
 	public void updatePost2(int post_num);
 	
-	@Insert("insert into T_MATCHING values (null, #{post_num}, #{partner_nick}, sysdate)")
-	public void addMatching(Map<String, String> data);
+	@Insert("insert into T_MATCHING values (null, #{post_num}, #{match_id}, sysdate)")
+	public void addMatching(MatchingInsert mi);
+	
+	@Select("select mem_id from T_MEMBER where name=#{nick}")
+	public String whatIsId(String nick);
 }

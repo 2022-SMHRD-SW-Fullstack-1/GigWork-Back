@@ -11,6 +11,7 @@ import com.example.demo.mapper.ChatMapper;
 import com.example.demo.model.ChattingContent;
 import com.example.demo.model.ChattingRoom;
 import com.example.demo.model.Matching;
+import com.example.demo.model.MatchingInsert;
 import com.example.demo.model.Post;
 
 import lombok.RequiredArgsConstructor;
@@ -69,6 +70,9 @@ public class ChatService {
 	}
 	
 	public void addMatching(Map<String, String> data) {
-		chatMapper.addMatching(data);
+		MatchingInsert mi = new MatchingInsert();
+		mi.setMatch_id(chatMapper.whatIsId(data.get("partner_nick")));
+		mi.setPost_num(Integer.parseInt(data.get("post_num")));
+		chatMapper.addMatching(mi);
 	}
 }
