@@ -69,7 +69,6 @@ public class ChatService {
 	}
 	
 	public void addMatching(Map<String, String> data) {
-		Matching matching = new Matching(0, data.get("post_num"), data.get("partner_nick"), null);
-		chatMapper.addMatching(matching);
+		chatMapper.addMatching(data);
 	}
 }
