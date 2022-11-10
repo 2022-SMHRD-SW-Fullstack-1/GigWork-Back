@@ -38,4 +38,6 @@ public interface ProfileMapper {
 	public String nameToId(@RequestBody Map<String,Object> id);
 
 	public void evl(@RequestBody Map<String,Object> info);
+	
+	public void evl5(@RequestBody Map<String,Object> name);
 }

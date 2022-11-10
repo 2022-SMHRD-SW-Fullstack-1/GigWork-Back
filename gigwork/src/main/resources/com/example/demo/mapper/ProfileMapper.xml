@@ -63,4 +63,9 @@ ORDER BY EVL_DATE desc
 		insert into t_manner values(null,#{targetId},#{oppId},#{evlPoint},#{evlContent},to_date(#{evlDate},'YYYY-MM-DD'))
 	</insert>
 
+	<update id="evl5">
+		update t_member set mem_trust=mem_trust+2 where name=${name}
+
+	</update>
+
 </mapper>

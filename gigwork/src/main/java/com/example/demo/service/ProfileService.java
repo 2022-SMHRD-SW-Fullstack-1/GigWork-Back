@@ -67,6 +67,8 @@ public class ProfileService {
 	public void evl(@RequestBody Map<String,Object> info) {
 		profileMapper.evl(info);
 	}
-	
+	public void evl5(@RequestBody Map<String,Object> name) {
+		profileMapper.evl5(name);
+	}
 	
 }

@@ -10,6 +10,6 @@ import lombok.Data;
 public class Manner {
 
 	private String evl_content;
-	private int evl_point;
+	private String evl_point;
 	private String evl_date;
 }
