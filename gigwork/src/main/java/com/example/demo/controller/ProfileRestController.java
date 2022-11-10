@@ -190,6 +190,7 @@ public class ProfileRestController {
 	@PostMapping("evl")
 	public void evl(@RequestBody Map<String,Object> info) {
 		profileService.evl(info);
+		
 	}
 	
 }
