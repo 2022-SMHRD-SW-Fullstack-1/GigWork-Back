@@ -37,6 +37,7 @@ public class ChatRestController {
 	
 	@PostMapping("/content")
 	public String getChatContent(@RequestBody Map<String, String> data) {
+		System.out.println("roomInfo : "+ data.get("cr_seq"));
 		List<ChattingContent> chatCntList = chatService.getChatContent(data.get("roomnum"));
 		return gson.toJson(chatCntList);
 	}
@@ -72,6 +73,7 @@ public class ChatRestController {
 	
 	@PostMapping("makeOffer")
 	public void makeOffer(@RequestBody Map<String, String> data) {
+		System.out.println(data.toString());
 		chatService.makeOffer(data);
 	}
 }

@@ -20,7 +20,7 @@ public interface ChatMapper {
 	@Select("select * from T_CHATTING_CONTENT")
 	public List<ChattingContent> getChattingContent();
 	
-	@Select("select * from T_CHATTING_ROOM where MEM_NICK = #{nick} or PARTNER_NICK = #{nick}")
+	@Select("select * from T_CHATTING_ROOM where MEM_NICK = #{nick} or PARTNER_NICK = #{nick} order by cr_seq")
 	public List<ChattingRoom> getChattingRoom(String nick);
 	
 	@Select("select * from T_CHATTING_CONTENT where CR_SEQ = #{roomNum} order by CC_SEQ")
@@ -31,7 +31,7 @@ public interface ChatMapper {
 	@Insert("insert into T_CHATTING_ROOM values (null, #{mem_nick}, sysdate, #{partner_nick}, 'c', #{post_num})")
 	public void createChatRoom(ChattingRoom data);
 	
-	@Select("select * from ( select * from T_CHATTING_ROOM order by post_num desc) where rownum = 1")
+	@Select("select * from ( select * from T_CHATTING_ROOM order by cr_seq desc) where rownum = 1")
 	public ChattingRoom getChatRoom();
 	
 	@Select("select * from T_POST where post_num=#{post_num}")
