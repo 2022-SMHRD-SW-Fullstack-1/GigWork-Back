@@ -21,9 +21,6 @@ public class RegisterService {
 		registerMapper.createRegister(info);
 	}
 	
-//	public String login(@RequestBody Map<String,Object> info) {
-//		return registerMapper.login(info);
-//	}
 	
 	public Login login(@RequestBody Map<String,Object> info) {
 		return registerMapper.login(info);

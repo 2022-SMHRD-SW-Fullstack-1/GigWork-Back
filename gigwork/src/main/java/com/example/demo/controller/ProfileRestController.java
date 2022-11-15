@@ -35,10 +35,6 @@ public class ProfileRestController {
 
 	private final ProfileService profileService;
 	
-//	@PostMapping("/test")
-//	public void test(@RequestBody Map<String,Object> cate) {
-//		System.out.println(cate.get("cate"));
-//	}
 	@PostMapping("/proCreate")
 	public void create(@RequestBody Map<String,Object> pro){
 		

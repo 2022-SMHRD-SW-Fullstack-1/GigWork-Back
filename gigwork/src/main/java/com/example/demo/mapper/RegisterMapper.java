@@ -10,8 +10,6 @@ import com.example.demo.model.Login;
 @Mapper
 public interface RegisterMapper {
 	public void createRegister(@RequestBody Map<String,Object> info);
-
-//	public String login(@RequestBody Map<String,Object> info);
 	
 	public Login login(@RequestBody Map<String,Object> info);
 }

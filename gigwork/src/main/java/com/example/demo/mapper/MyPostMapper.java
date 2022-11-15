@@ -15,14 +15,6 @@ import com.example.demo.model.WishList;
 @Mapper
 public interface MyPostMapper {
 
-//	@Select("select from t_post where memid=#{mem_Id}")
-//	public List<Post> searchMyPost(String mem_Id);
-//	
-//	@Delete("delete from  )
-//	public void deleteAllMyPost(String mem_id);
-	
-//	public List<WishList> searchmyPost(String mem_id);
-	
 	public List<Post> searchmyPost(@RequestBody Map<String,Object> num);
 	
 	public NamePost mynick(int post_num);

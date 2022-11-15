@@ -72,15 +72,6 @@ public class PostRestController {
 
 	}
 
-//	@PostMapping("/pagenation")
-//	public String pagenation(Map<String,Object> data, Criteria cri ) {
-//		List<Post> postList = postService.selectPostListPaging(data,cri);
-//		
-//		int total = postService.
-//		Page page = new Page(cri, total);
-//		
-
-//	}
 
 	// 로그인하는 Id 같이 넣기.
 	@PostMapping("/bookmark")

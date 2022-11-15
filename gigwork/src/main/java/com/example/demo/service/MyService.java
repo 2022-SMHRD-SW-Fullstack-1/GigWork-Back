@@ -21,17 +21,6 @@ public class MyService {
 
 	private final MyPostMapper mypostMapper;
 
-//	public List<Post> searchMyPost(String mem_Id){
-//		return mypostMapper.searchMyPost(mem_Id);
-//	}
-
-//	public void deleteAllMyPost(String mem_id) {
-//		mypostMapper.deleteAllMyPost(mem_id);
-//	}
-
-//	public List<WishList> searchmyPost(String mem_id) {
-//		return mypostMapper.searchmyPost(mem_id);
-//	}
 	public List<Post> searchmyPost(@RequestBody Map<String, Object> num) {
 		return mypostMapper.searchmyPost(num);
 	}
